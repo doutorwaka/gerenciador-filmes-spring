@@ -10,4 +10,5 @@ import com.doutorwaka.gerenciadorfilmes.entities.Ator;
 @Repository
 public interface AtorRepositorio extends JpaRepository<Ator, Long>{
 	public List<Ator> findByOrderByNomeAsc();
+	public Ator getReferenceByNome(String nome);
 }

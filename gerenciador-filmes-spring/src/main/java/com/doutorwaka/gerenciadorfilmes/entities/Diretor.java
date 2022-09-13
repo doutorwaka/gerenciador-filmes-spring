@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.doutorwaka.gerenciadorfilmes.dtos.DiretorDto;
+
 @Entity
 @Table(name = "cf_diretor")
 public class Diretor {
@@ -31,6 +33,10 @@ public class Diretor {
 		super();
 		this.id = id;
 		this.nome = nome;
+	}
+	
+	public Diretor(DiretorDto diretor) {
+		this.nome = diretor.getNome();
 	}
 
 	public Long getId() {
