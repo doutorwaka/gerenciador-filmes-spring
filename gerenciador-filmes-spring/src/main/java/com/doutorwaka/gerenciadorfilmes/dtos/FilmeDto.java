@@ -40,6 +40,7 @@ public class FilmeDto implements Serializable {
 		this.nome = filme.getNome();
 		this.diretor = new DiretorDto(filme.getDiretor());
 		this.nota = filme.getNota();
+		this.elenco = new HashSet<AtorDto>();
 		
 		for(Ator a : filme.getElenco()) {
 			this.elenco.add(new AtorDto(a));

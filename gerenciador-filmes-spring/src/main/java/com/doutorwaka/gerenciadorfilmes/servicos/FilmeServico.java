@@ -27,7 +27,8 @@ public class FilmeServico {
 	private AtorRepositorio ar;
 	@Autowired
 	private DiretorRepositorio dr;
-
+	
+	@Transactional(readOnly = false)
 	public boolean addFilme(FilmeDto filme) {
 
 		Diretor diretorJaExiste = dr.getReferenceByNome(filme.getDiretor().getNome());
@@ -72,7 +73,7 @@ public class FilmeServico {
 	public List<FilmeDto> listaFilmesPorDiretor(DiretorDto diretor) {
 		Diretor diretorDoBanco = dr.getReferenceByNome(diretor.getNome());
 
-		if (diretorDoBanco != null)
+		if (diretorDoBanco == null)
 			return null;
 
 		List<Filme> filmesDoBanco = fr.findByDiretorOrderByNomeAsc(diretorDoBanco);

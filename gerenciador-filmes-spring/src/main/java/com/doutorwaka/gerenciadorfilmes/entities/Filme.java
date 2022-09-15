@@ -2,6 +2,7 @@ package com.doutorwaka.gerenciadorfilmes.entities;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,9 @@ public class Filme {
 	private Long id;
 
 	private String nome;
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	private Diretor diretor;
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.PERSIST)
 	private Set<Ator> elenco;
 	private float nota;
 
